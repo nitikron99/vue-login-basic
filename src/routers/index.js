@@ -21,4 +21,14 @@ const router = createRouter({
   routes
 })
 
+router.beforeEach((to) => {
+  console.log('to => ', to)
+  const user = JSON.parse(localStorage.getItem('authenticatorInfo'))
+  if (to.name !== 'LoginPage' && !user) {
+    return ({ name: 'LoginPage' })
+  } else if (to.name === 'LoginPage' && user) {
+    return ({ name: 'MainPage' })
+  }
+})
+
 export default router

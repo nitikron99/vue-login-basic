@@ -37,6 +37,13 @@ export default {
           .then((res) => {
             if (res) {
               if (res.data === true) {
+                localStorage.setItem(
+                  "authenticatorInfo",
+                  JSON.stringify({
+                    firstname: "admin",
+                    password: "password",
+                  })
+                );
                 router.push({ name: "MainPage" });
               } else {
                 this.responseText = res.data;

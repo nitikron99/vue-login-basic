@@ -8,6 +8,7 @@ import router from "@/routers";
 export default {
   methods: {
     login() {
+      localStorage.removeItem('authenticatorInfo')
       router.push({ name: "LoginPage" });
     },
   },
